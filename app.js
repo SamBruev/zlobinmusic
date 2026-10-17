@@ -34,7 +34,7 @@ const recommendations = {
  harmony: ['Тебе может подойти курс «Первые ii–V–I»', 'Связь аккордов, движение голосов и короткая музыкальная фраза.'],
  jazz: ['Присмотрись к курсу «Джаз как язык»', 'Слух, развитие мелодии и импровизация в музыкальном контексте.'],
  bossa: ['Присмотрись к курсу «Ритм босса-новы»', 'Бас, синкопы и независимость пальцев в аккомпанементе.'],
- personal: ['Начни с разговора с Никитой', 'Для первых шагов или индивидуальной задачи обсудите личные занятия.']
+ personal: ['Давай обсудим твою задачу', 'Напиши мне, с чего хочешь начать. Обсудим индивидуальные онлайн-занятия.']
 };
 const recommendationAction = document.querySelector('#recommendation-action');
 document.querySelectorAll('[name="goal"]').forEach(input => input.addEventListener('change', () => {
@@ -124,10 +124,10 @@ document.querySelectorAll('[data-copy]').forEach(button => button.addEventListen
  try {
   if (!navigator.clipboard?.writeText) throw new Error('clipboard unavailable');
   await navigator.clipboard.writeText(field.value);
-  status.textContent = 'Скопировано. Вставь текст в сообщении Никите.';
+  status.textContent = 'Скопировано. Вставь текст в сообщении мне во ВКонтакте.';
  } catch {
   field.focus(); field.select();
-  status.textContent = 'Текст выделен. Скопируй его вручную и вставь в сообщении Никите.';
+  status.textContent = 'Текст выделен. Скопируй его вручную и отправь мне во ВКонтакте.';
  }
 }));
 
