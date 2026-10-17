@@ -52,3 +52,20 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:active,.copy-button:active,.menu-toggle:active,.menu-close:active,.dialog-close:active,.course:hover,.button:hover,.music-feature:hover>img,.music-feature:hover .record-play,.drawer-nav a:hover,.chord.active,.chord.active .top-note{transform:none}.header nav a:after,.menu-icon i,.course-open span,.text-link span,.header-contact span,.hero-bottom a span,.archive-item>span:last-child{transition:none}dialog::backdrop{transition:none}}
 
 #menu-title img{width:158px;height:auto}.artist-hero .hero-photo figcaption img{width:130px;height:auto;margin-bottom:8px}.artist-hero .hero-photo figcaption span{font-size:10px}.header .brand img{height:auto}@media(max-width:760px){.header .brand img{width:150px}#menu-title img{width:145px}}@media(max-width:360px){.header .brand img{width:132px}}
+
+/* Mobile hero: identity, performer and course action share the first viewport. */
+.artist-hero h1 > span{display:block}
+@media(max-width:760px){
+ .artist-hero{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "name" "photo" "courses" "description" "listen" "about";min-height:0}
+ .artist-hero .hero-copy,.artist-hero .hero-actions{display:contents}
+ .artist-hero .intro{grid-area:intro;margin:16px var(--gutter) 7px;max-width:none;font-size:11px;line-height:1.5}
+ .artist-hero h1{grid-area:name;font-size:clamp(30px,9.8vw,60px);line-height:1.12;letter-spacing:-.055em;margin:0 var(--gutter) 14px;text-wrap:nowrap}
+ .artist-hero h1 > span{display:inline}
+ .artist-hero .hero-photo{grid-area:photo;height:clamp(240px,calc(100svh - 270px),480px);min-height:0;border-radius:0;overflow:hidden}
+ .artist-hero .hero-photo>img{object-fit:cover;object-position:50% 42%}
+ .artist-hero .hero-photo figcaption{display:none}
+ .artist-hero .hero-actions .button{grid-area:courses;margin:14px var(--gutter) 18px;width:auto;min-height:54px;font-size:14px}
+ .artist-hero .hero-description{grid-area:description;margin:0 var(--gutter);font-size:16px;max-width:42ch}
+ .artist-hero .hero-secondary{grid-area:listen;justify-self:start;margin:14px var(--gutter) 0;padding:12px 0;font-size:14px}
+ .artist-hero .hero-bottom{grid-area:about;margin:0;padding:22px var(--gutter) 30px}
+}
