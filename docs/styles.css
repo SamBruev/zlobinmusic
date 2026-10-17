@@ -90,3 +90,21 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .music-feature>img{height:290px}
  .music-feature-caption{padding:0 12px 20px}
 }
+
+/* A single footer composition, with navigation above secondary credits. */
+.site-footer{display:block;padding:44px var(--gutter) 28px;background:linear-gradient(var(--wine),var(--wine-dark));color:#fff}
+.site-footer>.footer-main{display:grid;grid-template-columns:200px 1fr;align-items:center;gap:40px;width:100%;text-align:left;color:inherit}
+.site-footer .brand{width:170px;display:block}
+.site-footer .brand img{width:100%;height:auto}
+.site-footer .footer-nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:18px 30px;font-size:14px;line-height:1.5}
+.site-footer .footer-nav a{display:inline-flex;align-items:center;min-height:44px;color:#f5e9ee}
+.site-footer a:hover{text-decoration:underline;text-underline-offset:5px}
+.site-footer a:focus-visible{outline-color:var(--amber)}
+.site-footer>.footer-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;margin-top:30px;padding-top:22px;border-top:1px solid #ffffff26;text-align:left;color:#d8bcc8;font-size:12px;line-height:1.6}
+@media(max-width:760px){
+ .site-footer{padding:36px var(--gutter) 28px}
+ .site-footer>.footer-main{grid-template-columns:1fr;gap:24px}
+ .site-footer .brand{width:150px}
+ .site-footer .footer-nav{display:grid;grid-template-columns:1fr 1fr;justify-content:start;gap:4px 18px;font-size:13px}
+ .site-footer>.footer-meta{flex-direction:column;align-items:flex-start;gap:6px;margin-top:24px;padding-top:20px}
+}
