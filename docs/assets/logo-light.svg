@@ -1,18 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="108" viewBox="0 0 300 108" fill="none" role="img" aria-labelledby="title">
-  <title id="title">Zlobin Music</title>
-  <g fill="#FFFFFF">
-    <path d="M8 28h43v11L23 63h29v12H7V64l28-24H8z"/>
-    <path d="M63 8h13v67H63z"/>
-    <path fill-rule="evenodd" d="M111 26c15 0 25 10 25 25s-10 26-25 26-25-11-25-26 10-25 25-25zm0 12c-7 0-12 5-12 13s5 14 12 14 12-6 12-14-5-13-12-13z"/>
-    <path fill-rule="evenodd" d="M146 8h13v25c4-5 9-7 15-7 13 0 22 10 22 25s-9 26-23 26c-6 0-11-3-14-7v5h-13V8zm25 30c-7 0-12 5-12 13s5 14 12 14 12-6 12-14-5-13-12-13z"/>
-    <path d="M207 28h13v47h-13z"/><circle cx="213.5" cy="13.5" r="7.5"/>
-    <path d="M233 28h13v6c4-5 9-8 15-8 13 0 20 9 20 22v27h-13V50c0-8-3-12-10-12-7 0-12 5-12 13v24h-13z"/>
-  </g>
-  <g stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m160 96 4-13-3 11c7-13 13-13 9 0 8-12 14-11 10-1-2 6 3 5 7 1"/>
-    <path d="m191 85-3 9c-2 7 8 2 12-9l-3 9c-2 5 3 5 8 1"/>
-    <path d="M218 84c-8-3-13 3-7 7 8 5 0 10-6 6m11-1 9-11-3 9c-2 6 4 4 8 1"/>
-    <path d="M243 86c-5-5-13 3-12 8 0 6 10 4 17-2"/>
-    <path d="M226 79h.2" stroke-width="3.5"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="104" viewBox="0 0 340 104" fill="#ffffff" role="img" aria-labelledby="title"><title id="title">Zlobin Music — Никита Злобин</title><g transform="translate(25 0) skewX(-9)">
+<path d="M3 28H53L52 36 17 68H45L51 58H55L51 77H0L1 69 36 37H13L7 47H3Z"/>
+<path d="M68 10 88 6 78 64Q76 74 87 69L85 75Q66 86 62 71Q61 67 62 61L70 16H67Z"/>
+<path fill-rule="evenodd" d="M118 26C137 26 145 37 142 53 139 70 128 79 111 79 94 79 85 68 88 52 91 35 102 26 118 26ZM117 33C108 33 103 41 100 53 98 65 101 72 112 72 121 72 127 63 130 52 132 41 128 33 117 33Z"/>
+<path fill-rule="evenodd" d="M159 10 179 6 174 35Q182 26 193 26C209 26 213 38 210 52 207 69 195 79 179 79 166 79 158 75 153 71L164 16H158ZM184 34C176 34 172 42 170 52L167 67Q171 72 179 72C189 72 196 62 198 51 200 40 195 34 184 34Z"/>
+<path d="M225 29 244 26 236 64Q234 73 244 69L243 75Q224 85 221 73 220 68 222 61L227 35H224Z"/>
+<path d="M260 29 279 26 277 35Q286 26 297 26C311 26 315 34 312 49L308 65Q306 73 316 69L314 75Q297 84 294 73 293 69 295 61L298 47Q301 35 291 35 278 35 275 50L269 77H255L263 35H259Z"/>
+</g><path d="M251 8 259 16 249 24 241 16Z" fill="#f2c078"/><path d="M15 88Q97 79 191 86" fill="none" stroke="#f2c078" stroke-width="2.8" stroke-linecap="round"/><g fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M209 99V85L216 94 223 85V99M231 85V94Q231 100 237 100 243 100 243 94V85M262 87Q258 83 253 86 249 89 256 92 264 94 260 98 256 102 251 98M271 85V99M292 87Q287 82 282 87 277 92 282 97 287 102 292 97"/>
+</g></svg>
