@@ -108,3 +108,81 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .site-footer .footer-nav{display:grid;grid-template-columns:1fr 1fr;justify-content:start;gap:4px 18px;font-size:13px}
  .site-footer>.footer-meta{flex-direction:column;align-items:flex-start;gap:6px;margin-top:24px;padding-top:20px}
 }
+
+/* Shared visual system: one palette, spacing rhythm and control hierarchy. */
+:root{
+ --ink:#30272d;--muted:#6b5b64;--paper:#faf7f8;--surface:#fff;--soft:#f1e8ed;--line:#dfd3d9;
+ --blue:var(--soft);--blue-deep:var(--wine);--radius:16px;--panel-radius:20px;
+ --section-space:80px;--content-gutter:max(var(--gutter),calc((100vw - 1440px)/2));
+ --section-heading-size:clamp(40px,4vw,56px);
+}
+.header{background:var(--paper);padding-inline:var(--content-gutter);box-shadow:0 4px 20px #40162806}
+.section,.practice,.contact{max-width:none;margin-inline:0;padding:var(--section-space) var(--content-gutter)}
+.section,.practice{background:var(--paper)}
+.site-footer{padding-inline:var(--content-gutter)}
+.section h2,.practice h2,.contact h2,.courses .section-heading h2,.mentor-copy h2,.lessons-copy h2,.concert-heading h2{font-size:var(--section-heading-size);line-height:1.12;letter-spacing:-.045em;font-weight:600}
+.section-heading{gap:32px;margin-bottom:32px;align-items:flex-start}
+.section-heading .section-aside{max-width:38ch}
+.section h3,.music-notes h3,.music-feature-caption h3,.concert-archive>h3{font-size:28px;line-height:1.2;letter-spacing:-.035em;font-weight:600}
+.section-label,.course-type{font-size:13px;color:var(--muted);font-weight:500}
+.course-grid,.news-grid{gap:24px}
+.mentor,.lessons-section,.concert-section,.practice,.faq{grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,88px)}
+.mentor-image img{aspect-ratio:4/5}
+.lessons-photo{height:auto;aspect-ratio:4/5}
+.mentor-copy .large-text,.lessons-copy>.large-text{font-size:23px!important;line-height:1.5;letter-spacing:-.025em}
+.lessons-copy>p:not(.section-label):not(.large-text),.practice-intro>p:not(.section-label),.news-item>p{font-size:16px;line-height:1.65}
+.course,.lesson{border:1px solid var(--line);border-radius:var(--panel-radius);background:var(--surface);box-shadow:none}
+.course-content{padding:24px}.lesson{padding:28px}
+.harmony-art,.bossa-art{background:linear-gradient(var(--soft),var(--surface));color:var(--wine)}
+.harmony-art>span{font-size:76px}.bossa-art>span{font-size:64px}
+.course-guide,.faq-list details[open],.dialog-note{background:var(--soft);border-radius:var(--radius)}
+.course-guide .choose{gap:32px}.course-guide h2{font-size:30px}
+.chooser label,.chord{border-radius:12px;border-color:var(--line);background:var(--surface)}
+.chooser label:has(input:checked){background:var(--soft)}
+.chord:hover{border-color:var(--wine)}.chord.active{background:var(--wine);border-color:var(--wine)}
+.top-note{background:var(--soft);color:var(--wine)}.top-note.resolve{background:#f5e1c5;color:#654216}
+.news-item{border-top:1px solid var(--line);padding-top:24px}
+.news-item h3{margin:16px 0}.news-item>p{margin-bottom:20px}
+.archive-item,.archive-item:last-child{border-color:var(--line)}
+.concert-archive>h3{margin-bottom:20px}.archive-item h4{color:var(--ink)}
+.music-layout{grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,88px)}
+.music-feature-caption{padding-inline:0}.music-feature-caption h3{max-width:none}
+.button,.lesson-controls .button,.contact-action .button,dialog .button{min-height:52px;font-size:14px;font-weight:500;padding:13px 24px;border-radius:28px;line-height:1.5}
+.button-dark{background:var(--wine)}.button-dark:hover{background:var(--wine-dark)}
+.button-light,.contact .button-light{background:var(--amber);color:var(--wine-dark)}
+.button-light:hover,.contact .button-light:hover{background:#f6cc92}
+.course-content .course-open{min-height:48px;font-size:14px;border-color:var(--line)}
+.text-link{font-size:14px;line-height:1.6}
+#contact-topic,.message-box textarea{border-radius:12px;font-size:16px;line-height:1.5}
+.message-box-light textarea{background:var(--surface);border-color:var(--line)}
+.copy-button{border-radius:24px;padding:10px 18px;font-size:13px;min-height:44px}
+.contact-action{padding-top:0}.contact-links{gap:20px}
+#course-dialog{background:var(--paper);border-radius:var(--panel-radius)}
+#course-dialog .dialog-close{background:var(--soft)}
+@media(max-width:1100px) and (min-width:761px){
+ .course-grid{grid-template-columns:1fr}.course{display:grid;grid-template-columns:34% 1fr}
+ .course-art{height:100%;min-height:260px}.course-content{padding:26px}.course-content .course-fit{padding-bottom:16px}
+ .news-grid{gap:24px}.news-item h3{font-size:24px}
+ .practice,.faq{grid-template-columns:1fr;gap:32px}.practice-intro>p:not(.section-label){max-width:64ch}
+ .lesson{max-width:740px;width:100%}.harmony-art>span{font-size:58px}.bossa-art>span{font-size:52px}
+}
+@media(max-width:760px){
+ :root{--section-space:52px;--section-heading-size:36px}
+ .section-heading{margin-bottom:28px}.section-aside{margin-top:20px}
+ .mentor,.lessons-section,.concert-section,.practice,.faq,.music-layout{grid-template-columns:1fr;gap:28px}
+ .section h3,.music-notes h3,.music-feature-caption h3,.concert-archive>h3{font-size:26px}
+ .mentor-image img{aspect-ratio:5/4}.lessons-photo{aspect-ratio:5/4;height:auto}
+ .mentor-copy .large-text,.lessons-copy>.large-text{font-size:21px!important}
+ .course-content{padding:22px}.course-grid,.news-grid{gap:24px}.course-art{height:210px}
+ .harmony-art>span{font-size:72px}.bossa-art>span{font-size:62px}
+ .lesson{padding:22px 16px}.lesson-controls{gap:12px}
+ .lesson-controls .button{font-size:13px;padding-inline:14px;min-height:48px}
+ .course-guide h2{font-size:28px}.course-guide .choose{gap:24px}
+ .contact-links{margin-bottom:0}.contact-intro{margin-top:22px}
+ .contact-action .button{font-size:14px}.contact .message-box textarea{min-height:240px}
+}
+@media(max-width:360px){
+ :root{--section-heading-size:32px}
+ .section h3,.music-notes h3,.music-feature-caption h3{font-size:25px}
+ .lesson-controls .button{font-size:12px;padding-inline:12px}
+}
