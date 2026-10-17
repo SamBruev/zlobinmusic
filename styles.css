@@ -69,3 +69,24 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .artist-hero .hero-secondary{grid-area:listen;justify-self:start;margin:14px var(--gutter) 0;padding:12px 0;font-size:14px}
  .artist-hero .hero-bottom{grid-area:about;margin:0;padding:22px var(--gutter) 30px}
 }
+
+/* Let photography dissolve into each section instead of ending at a frame. */
+.artist-hero .hero-photo{border-radius:0}
+.artist-hero .hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--wine-dark),transparent 26%),linear-gradient(0deg,var(--wine-dark),transparent 24%),linear-gradient(180deg,var(--wine-dark),transparent 10%)}
+.mentor-image img,.lessons-photo{border-radius:0}
+.mentor-image img,.lessons-photo img,.music-feature>img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,transparent,#000 9%,#000 78%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,transparent,#000 9%,#000 78%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
+.jazz-art{background:#fff}
+.jazz-art img{-webkit-mask-image:linear-gradient(180deg,#000 66%,transparent);mask-image:linear-gradient(180deg,#000 66%,transparent)}
+.music-feature{display:block;min-height:0;background:transparent;color:var(--ink);border-radius:0;overflow:visible}
+.music-feature>img{position:relative;height:360px}
+.music-feature:after{display:none}
+.music-feature-caption{padding:4px 24px 24px;align-items:center}
+.music-feature-caption p,.music-feature-caption div>span{color:var(--muted)}
+.music-feature .record-play{color:var(--wine);border-color:var(--line);flex-shrink:0}
+@media(max-width:760px){
+ .artist-hero .hero-photo::after{background:linear-gradient(180deg,var(--wine-dark),transparent 7%,transparent 79%,var(--wine-dark)),linear-gradient(90deg,#40162860,transparent 10%,transparent 90%,#40162860)}
+ .artist-hero .hero-photo>img{object-position:50% 34%}
+ .mentor-image img,.lessons-photo img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 80%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 80%,transparent)}
+ .music-feature>img{height:290px}
+ .music-feature-caption{padding:0 12px 20px}
+}
