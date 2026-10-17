@@ -7,6 +7,6 @@ await mkdir(resolve(out, 'assets'), { recursive: true });
 for (const name of ['index.html', 'styles.css', 'app.js', '.nojekyll']) await copyFile(resolve(root, name), resolve(out, name));
 for (const name of await readdir(resolve(root, 'assets'))) await copyFile(resolve(root, 'assets', name), resolve(out, 'assets', name));
 const html = await readFile(resolve(out, 'index.html'), 'utf8');
-for (const match of html.matchAll(/(?:src|href)="(assets\/[^"#?]+|styles\.css|app\.js)"/g)) await readFile(resolve(out, match[1]));
+for (const match of html.matchAll(/(?:src|href)="(assets\/[^"#?]+|styles\.css|app\.js)(?:\?[^"#]*)?"/g)) await readFile(resolve(out, match[1]));
 await writeFile(resolve(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 console.log('Static site prepared in docs/. All local HTML assets verified.');

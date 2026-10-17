@@ -115,7 +115,8 @@ function messageFor(id) {
 }
 function updateContactMessage(id) {
  const field = document.querySelector('#contact-message');
- if (!field.dataset.edited) { field.value = messageFor(id); document.querySelector('#contact-message-status').textContent = ''; }
+ setContactIntent(courses[id] ? 'course' : 'lesson');
+ if (!field.dataset.edited) { field.value = courses[id] ? messageFor(id) : intentMessages.lesson; contactDrafts.set(contactTopic.value, field.value); document.querySelector('#contact-message-status').textContent = ''; }
 }
 document.querySelector('#contact-message').addEventListener('input', event => { event.target.dataset.edited = 'true'; document.querySelector('#contact-message-status').textContent = ''; });
 document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
@@ -131,3 +132,32 @@ document.querySelectorAll('[data-copy]').forEach(button => button.addEventListen
 }));
 
 document.querySelector('#dialog-message').addEventListener('input', event => { messageDrafts.set(activeCourse, event.target.value); document.querySelector('#dialog-message-status').textContent = ''; });
+
+// Drafts stay only in this page's memory. Navigation never sends a message.
+const contactTopic = document.querySelector('#contact-topic');
+const contactField = document.querySelector('#contact-message');
+const contactDrafts = new Map();
+const contactEdited = new Set();
+const intentMessages = {
+ lesson: 'Никита, привет! Хочу записаться на индивидуальное онлайн-занятие.\nМой уровень…\nХочу научиться…\nМой часовой пояс и удобное время…\nПодскажи, пожалуйста, стоимость и ближайшие свободные часы.',
+ concert: 'Никита, привет! Хотим пригласить тебя выступить.\nДата и город…\nПлощадка и событие…\nЖелаемый формат и продолжительность…\nРасскажи, пожалуйста, о возможной программе и условиях.',
+ collaboration: 'Никита, привет! Хочу предложить совместный музыкальный проект.\nМеня зовут…\nМоя идея…\nСроки и формат…\nГде можно послушать мои работы…',
+ course: 'Никита, привет! Интересуют твои курсы гитары.\nСейчас я играю…\nХочу научиться…\nПодскажи, какое направление мне подойдёт и как узнать о старте.'
+};
+let contactIntent = contactTopic.value;
+function setContactIntent(intent) {
+ if (!Object.hasOwn(intentMessages, intent)) return;
+ contactDrafts.set(contactIntent, contactField.value);
+ if (contactField.dataset.edited) contactEdited.add(contactIntent);
+ contactIntent = intent;
+ contactTopic.value = intent;
+ contactField.value = contactDrafts.get(intent) ?? intentMessages[intent];
+ if (contactEdited.has(intent)) contactField.dataset.edited = 'true';
+ else delete contactField.dataset.edited;
+ document.querySelector('#contact-message-status').textContent = '';
+}
+contactTopic.addEventListener('change', () => setContactIntent(contactTopic.value));
+document.querySelectorAll('[data-contact-intent]').forEach(link => link.addEventListener('click', () => {
+ setContactIntent(link.dataset.contactIntent);
+ contactTopic.focus({ preventScroll: true });
+}));
