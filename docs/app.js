@@ -283,8 +283,10 @@ motionPreference.addEventListener('change', () => {
  if(!motionPreference.matches)return;
  for(const [panel,state] of [...dialogMotions]) { finishDialogMotion(panel);panel.classList.add('instant-motion');state.then(); }
  for(const [details,state] of [...collapses]) finishCollapse(details,state);
- for(const animation of entranceMotions.values()) animation.cancel();
+ for(const [element,animation] of entranceMotions) { animation.cancel(); element.style.removeProperty('will-change'); }
+ entranceMotions.clear();
  for(const animation of feedbackMotions.values()) animation.cancel();
+ feedbackMotions.clear();
 });
 
 function softFeedback(element) {
