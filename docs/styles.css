@@ -532,3 +532,11 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
 }
 @media(max-width:370px){.practice .chord strong{font-size:21px}.contact-action{padding:22px 16px}.contact .message-box textarea{padding:12px;font-size:14px}.artist-statement{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.faq-list summary::after{transition:none}}
+
+/* Original creator signature, linked to the author's website. */
+.site-footer>.footer-meta{flex-direction:row;align-items:center;gap:24px}
+.site-footer .footer-creator{display:block;flex:0 0 112px;width:112px;border-radius:6px;transition:opacity 160ms ease}
+.footer-creator img{display:block;width:112px;height:auto}
+.site-footer .footer-creator:hover{opacity:.85}
+@media(max-width:760px){.site-footer>.footer-meta{gap:20px}.footer-meta>span{min-width:0}}
+@media(prefers-reduced-motion:reduce){.site-footer .footer-creator{transition:none}}
