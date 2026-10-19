@@ -580,19 +580,19 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
 .opening-listen:hover{color:var(--amber);border-color:var(--amber)}
 .opening-portrait{position:relative;width:100%;max-width:560px;aspect-ratio:10/11;justify-self:end;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 24px),linear-gradient(180deg,transparent,#000 20px,#000 calc(100% - 24px),transparent);mask-composite:intersect}
 .opening-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 52%}
-/* Desktop photograph bleeds to three edges. Fade spans 46–54.1% of the hero. */
+/* Photograph: right two thirds. Fade spans 33.333–57.633% (24.3vw, three times 8.1vw). */
 @media(min-width:901px){
  .artist-opening{position:relative}
- .opening-layout{display:flex;align-items:center;max-width:none;height:max(660px,56.8vw);padding:50px 0 50px 10vw;margin:0}
- .opening-copy{position:relative;z-index:1;width:32vw;max-width:500px;padding:0}
+ .opening-layout{display:flex;align-items:center;max-width:none;height:max(660px,70.1vw);padding:50px 0 50px 5vw;margin:0}
+ .opening-copy{position:relative;z-index:1;width:27vw;max-width:500px;padding:0}
  .opening-copy h1{font-size:clamp(72px,7vw,108px)}
- .opening-portrait{position:absolute;inset:0 0 0 auto;width:54%;height:100%;max-width:none;aspect-ratio:auto;mask-image:linear-gradient(90deg,transparent 0%,#000 15%);mask-composite:add}
+ .opening-portrait{position:absolute;inset:0 0 0 auto;width:66.666667%;height:100%;max-width:none;aspect-ratio:auto;mask-image:linear-gradient(90deg,transparent 0%,#0000000d 5%,#00000040 12%,#000000a6 22%,#000000eb 30%,#000 36.45%);mask-composite:add}
  .opening-portrait img{object-position:50% 52%}
 }
 @media(min-width:901px) and (max-width:1100px){
- .opening-layout{padding-left:7vw}
- .opening-copy{width:36vw}
- .opening-copy h1{font-size:72px}
+ .opening-layout{padding-left:4vw}
+ .opening-copy{width:28vw}
+ .opening-copy h1{font-size:clamp(56px,6.5vw,72px)}
  .opening-role{font-size:12px}
  .opening-description{font-size:16px;margin-top:20px}
  .opening-actions{gap:12px;margin-top:24px}
