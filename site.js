@@ -114,20 +114,20 @@ const entranceMotions = new Map();
 function enter(element, delay = 0, hero = false) {
  if (!element || motionPreference.matches || keyboardAction || !element.animate || element.contains(document.activeElement)) return;
  element.style.willChange = 'transform, opacity';
- const animation = element.animate([{opacity:0,transform:hero?'translateY(28px)':'translateY(22px)'},{opacity:1,transform:'none'}],{duration:hero?640:600,delay,easing:easeOut,fill:'backwards'});
+ const animation = element.animate([{opacity: hero ? 0.7 : 0.45, transform: 'translateY(20px)'},{opacity:1,transform:'none'}],{duration:hero?640:600,delay,easing:easeOut,fill:'backwards'});
  entranceMotions.set(element,animation);
  const clean = () => { if(entranceMotions.get(element)!==animation)return; entranceMotions.delete(element);element.style.removeProperty('will-change'); };
  animation.onfinish=clean;animation.oncancel=clean;
 }
 if (!location.hash && !motionPreference.matches) {
- document.querySelectorAll('.hero-copy > .intro, .hero h1, .hero-description, .hero-actions').forEach((el,i)=>enter(el,i*60,true));
- enter(document.querySelector('.hero-photo'),80,true);
+ document.querySelectorAll('.opening-copy h1, .opening-role, .opening-description, .opening-actions .button, .opening-listen').forEach((el,i)=>enter(el,i*60,true));
+ // Keep the original hero portrait completely still to preserve the instrument crop.
 }
 if ('IntersectionObserver' in window) {
  const revealObserver = new IntersectionObserver(entries => {
   entries.filter(entry=>entry.isIntersecting).forEach((entry,i)=>{revealObserver.unobserve(entry.target);enter(entry.target,Math.min(i,2)*60);});
  },{threshold:.12,rootMargin:'0px 0px -24px 0px'});
- document.querySelectorAll('.artist-hero .hero-copy, .course-page .course-hero-copy').forEach(el=>revealObserver.observe(el));
+ document.querySelectorAll('.section-heading h2, .section-heading p, .course-feature-copy, .sample-copy h2, .sample-description, .exercise-steps li, .lessons-copy h2, .lessons-copy .large-text, .lessons-photo, .mentor-intro, .mentor-copy, .music-portrait, .recording, .practice-intro h2, .practice-instruction, .concert-heading, .archive-item, .news-item, .faq h2, .faq-intro, .contact h2, .contact-intro, .contact-links, .course-page .course-hero-copy').forEach(el=>revealObserver.observe(el));
 }
 document.addEventListener('focusin', event => {
  for(const [el,animation] of entranceMotions) if(el.contains(event.target)) animation.cancel();
