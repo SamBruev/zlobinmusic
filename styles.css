@@ -88,24 +88,6 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .music-feature-caption{padding:0 12px 20px}
 }
 
-/* A single footer composition, with navigation above secondary credits. */
-.site-footer{display:block;padding:44px var(--gutter) 28px;background:linear-gradient(var(--wine),var(--wine-dark));color:#fff}
-.site-footer>.footer-main{display:grid;grid-template-columns:200px 1fr;align-items:center;gap:40px;width:100%;text-align:left;color:inherit}
-.site-footer .brand{width:170px;display:block}
-.site-footer .brand img{width:100%;height:auto}
-.site-footer .footer-nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:18px 30px;font-size:14px;line-height:1.5}
-.site-footer .footer-nav a{display:inline-flex;align-items:center;min-height:44px;color:#f5e9ee}
-.site-footer a:hover{text-decoration:underline;text-underline-offset:5px}
-.site-footer a:focus-visible{outline-color:var(--amber)}
-.site-footer>.footer-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;margin-top:30px;padding-top:22px;border-top:1px solid #ffffff26;text-align:left;color:#d8bcc8;font-size:12px;line-height:1.6}
-@media(max-width:760px){
- .site-footer{padding:36px var(--gutter) 28px}
- .site-footer>.footer-main{grid-template-columns:1fr;gap:24px}
- .site-footer .brand{width:150px}
- .site-footer .footer-nav{display:grid;grid-template-columns:1fr 1fr;justify-content:start;gap:4px 18px;font-size:13px}
- .site-footer>.footer-meta{flex-direction:column;align-items:flex-start;gap:6px;margin-top:24px;padding-top:20px}
-}
-
 /* Shared visual system: one palette, spacing rhythm and control hierarchy. */
 :root{
  --ink:#30272d;--muted:#6b5b64;--paper:#faf7f8;--surface:#fff;--soft:#f1e8ed;--line:#dfd3d9;
@@ -116,7 +98,6 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
 .header{background:var(--paper);padding-inline:var(--content-gutter);box-shadow:0 4px 20px #40162806}
 .section,.practice,.contact{max-width:none;margin-inline:0;padding:var(--section-space) var(--content-gutter)}
 .section,.practice{background:var(--paper)}
-.site-footer{padding-inline:var(--content-gutter)}
 .section h2,.practice h2,.contact h2,.courses .section-heading h2,.mentor-copy h2,.lessons-copy h2,.concert-heading h2{font-size:var(--section-heading-size);line-height:1.12;letter-spacing:-.045em;font-weight:600}
 .section-heading{gap:32px;margin-bottom:32px;align-items:flex-start}
 .section-heading .section-aside{max-width:38ch}
@@ -496,9 +477,6 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
 .contact-action .button{width:100%;margin-top:24px}
 .contact-action .contact-note{color:#d9c6d0;font-size:12px;margin-top:16px}
 .contact :focus-visible{outline-color:var(--amber)}
-.site-footer{background:#24151f;padding-top:0;padding-bottom:30px}
-.site-footer>.footer-main{border-top:1px solid #ffffff26;padding-top:32px}
-.site-footer>.footer-meta{border-top:0;margin-top:18px}
 @media(max-width:1100px) and (min-width:761px){
  .lessons-section,.music-layout{gap:36px;grid-template-columns:1fr 1fr}
  .lessons-photo{aspect-ratio:3/4;position:sticky;top:120px}
@@ -528,23 +506,11 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .contact-intro{font-size:17px;margin-top:22px}.contact-links{margin-top:28px}.contact-links strong{font-size:22px}
  .contact-action{padding:24px 20px}.contact .message-box textarea{min-height:280px}.contact-action .contact-form-heading{font-size:24px}
  .contact-action .button{padding-inline:12px;font-size:13px}.contact{padding-bottom:36px}
- .site-footer>.footer-main{padding-top:28px}.site-footer>.footer-meta{padding-top:12px}
 }
 @media(max-width:370px){.practice .chord strong{font-size:21px}.contact-action{padding:22px 16px}.contact .message-box textarea{padding:12px;font-size:14px}.artist-statement{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.faq-list summary::after{transition:none}}
 
-/* Centered creator signature with explicit authorship. */
-.site-footer>.footer-meta{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
-.footer-meta>span{grid-column:1;grid-row:1;min-width:0}
-.site-footer .footer-creator{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:center;gap:16px;width:max-content;max-width:100%;text-align:center;border-radius:6px;padding:18px 24px;--creator-hover-duration:180ms;--creator-hover-ease:cubic-bezier(0.22,1,0.36,1)}
-.footer-creator-label{font-size:13px;line-height:1.5;color:#ead8e1}
-.footer-creator img{display:block;width:112px;height:auto;transform:scale(1);transform-origin:center;transition:transform var(--creator-hover-duration) var(--creator-hover-ease)}
-.site-footer .footer-creator:hover{opacity:1;text-decoration:none}
-@media(hover:hover) and (pointer:fine){.site-footer .footer-creator:hover img{transform:scale(1.1)}}
-.site-footer .footer-creator:focus-visible img{transform:scale(1.1)}
-.site-footer .footer-creator:hover .footer-creator-label{text-decoration:underline;text-underline-offset:4px}
-@media(max-width:760px){.site-footer>.footer-meta{grid-template-columns:1fr;justify-items:center;gap:28px;padding-top:24px}.site-footer .footer-creator{grid-column:1;grid-row:1}.footer-meta>span{grid-column:1;grid-row:2;text-align:center}}
-@media(prefers-reduced-motion:reduce){.site-footer .footer-creator img,.site-footer .footer-creator:hover img,.site-footer .footer-creator:focus-visible img{transition:none;transform:none}}
+
 
 /* Full portrait: preserve the instrument and give the copy equal side gutters. */
 @media(min-width:761px){
@@ -737,10 +703,6 @@ h3{font-size:var(--type-sub)}
 .contact-action .contact-form-heading{font-size:var(--type-sub)}
 .contact .message-box textarea{font-size:1rem;line-height:1.7;min-height:270px;background:var(--wine-dark)}
 .contact-action .contact-note{font-size:var(--type-note);color:#eadce3}
-.site-footer{background:var(--wine-dark);padding-bottom:40px}
-.site-footer>.footer-main{border:0;padding-top:32px}
-.site-footer>.footer-meta{margin-top:40px;font-size:var(--type-note)}
-.site-footer .footer-creator-label{font-size:var(--type-note)}
 .course-fit-section p,.course-purpose p,.programme-intro p,.course-availability p{font-size:var(--type-body);color:var(--ink)}
 .course-purpose,.curriculum-item,.course-facts>div,.other-course-links a{border:0}
 .curriculum-item{background:var(--soft);border-radius:var(--radius);margin-bottom:12px;padding:12px 20px}
@@ -875,4 +837,84 @@ html { scrollbar-gutter: stable; }
 @starting-style { .t-modal.is-open::backdrop { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
  .t-modal::backdrop { transition: none !important; }
+}
+
+/* Footer: three balanced groups, with the maker credit on the page centreline. */
+.site-footer {
+ display:grid;
+ grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+ grid-template-areas:"identity creator navigation";
+ align-items:center;
+ gap:32px;
+ padding:40px var(--content-gutter);
+ border-top:1px solid #ffffff20;
+ background:var(--wine-dark);
+ color:#f5e9ee;
+ font-size:1rem;
+ line-height:1.5;
+}
+.site-footer .footer-identity {
+ grid-area:identity;
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ gap:24px;
+ min-width:0;
+ text-align:left;
+ font-size:1rem;
+ color:#d8c5cf;
+}
+.site-footer .brand {display:block;width:170px;max-width:100%;}
+.site-footer .brand img {width:100%;height:auto;}
+.site-footer .footer-copyright {font-size:1rem;line-height:1.5;}
+.site-footer .footer-nav {
+ grid-area:navigation;
+ justify-self:end;
+ display:grid;
+ gap:0;
+ font-size:1rem;
+ line-height:1.5;
+ text-align:left;
+}
+.site-footer .footer-nav a {display:flex;align-items:center;min-height:44px;}
+.site-footer .footer-nav a:hover {text-decoration:underline;text-underline-offset:5px;}
+.site-footer a:focus-visible {outline-color:var(--amber);}
+.site-footer .footer-creator {
+ grid-area:creator;
+ justify-self:center;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:16px;
+ width:max-content;
+ max-width:100%;
+ padding:16px 24px;
+ text-align:center;
+ border-radius:6px;
+ --creator-hover-duration:180ms;
+ --creator-hover-ease:cubic-bezier(0.22,1,0.36,1);
+}
+.site-footer .footer-creator-label {font-size:1rem;line-height:1.5;color:#ead8e1;}
+.site-footer .footer-creator img {
+ display:block;width:104px;height:auto;transform:scale(1);transform-origin:center;
+ transition:transform var(--creator-hover-duration) var(--creator-hover-ease);
+}
+.site-footer .footer-creator:hover {opacity:1;text-decoration:none;}
+.site-footer .footer-creator:hover .footer-creator-label {text-decoration:underline;text-underline-offset:4px;}
+@media(hover:hover) and (pointer:fine) {.site-footer .footer-creator:hover img {transform:scale(1.1);}}
+.site-footer .footer-creator:focus-visible img {transform:scale(1.1);}
+@media(max-width:900px) {
+ .site-footer {
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:"identity" "navigation" "creator";
+  justify-items:center;gap:24px;padding-block:32px;
+ }
+ .site-footer .footer-identity {align-items:center;gap:16px;text-align:center;}
+ .site-footer .brand {width:160px;}
+ .site-footer .footer-nav {justify-self:center;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px;width:min(100%,400px);}
+ .site-footer .footer-nav a {justify-content:center;text-align:center;}
+ .site-footer .footer-creator {padding:16px 24px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .site-footer .footer-creator img,.site-footer .footer-creator:hover img,.site-footer .footer-creator:focus-visible img {transition:none;transform:none;}
 }
