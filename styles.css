@@ -511,7 +511,7 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .sample-copy .sample-description{font-size:16px;margin:22px 0}
  .exercise-heading{font-size:21px}.exercise-guide{padding-top:20px}.exercise-steps li{padding:16px 0}
  .lessons-copy{grid-row:2}.lessons-copy>.large-text{font-size:20px!important;line-height:1.55}
- .lessons-photo{grid-row:1;aspect-ratio:4/3;max-height:360px;width:100%;max-width:440px;justify-self:center}
+ .lessons-photo{grid-row:1;aspect-ratio:4/3;max-height:360px;width:100%;max-width:440px;justify-self:center}.lessons-photo img{object-position:center top}
  .lessons-copy .lesson-topics{margin:22px 0 26px}.lessons-copy .button{width:100%}
  .artist-statement{font-size:30px;max-width:24ch}.mentor-intro h2{margin-bottom:22px}
  .mentor-copy>p:not(.section-label){font-size:16px;line-height:1.75;margin-bottom:20px}
