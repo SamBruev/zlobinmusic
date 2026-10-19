@@ -2,44 +2,61 @@
 // Occasional UI transitions: native dialogs retain keyboard focus and modal semantics.
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const easeOut = 'cubic-bezier(0.23, 1, 0.32, 1)';
-const easeDrawer = 'cubic-bezier(0.32, 0.72, 0, 1)';
 let keyboardAction = false;
 document.addEventListener('keydown', () => { keyboardAction = true; }, true);
 document.addEventListener('pointerdown', () => { keyboardAction = false; }, true);
 const dialogMotions = new Map();
 const feedbackMotions = new Map();
 function syncModalLock() { document.body.classList.toggle('modal-open', !!document.querySelector('dialog[open]')); }
+// CSS owns the motion; native dialog owns focus, the top layer and background inertness.
 function finishDialogMotion(panel) {
  const previous = dialogMotions.get(panel);
- if (previous) { dialogMotions.delete(panel); previous.animation.cancel(); }
- panel.style.removeProperty('will-change');
+ if (!previous) return;
+ clearTimeout(previous.timer);
+ panel.removeEventListener('transitionend', previous.onEnd);
+ dialogMotions.delete(panel);
 }
 function animateDialog(panel, opening, then = () => {}) {
- const previous = dialogMotions.get(panel);
- const current = previous ? { transform: getComputedStyle(panel).transform, opacity: getComputedStyle(panel).opacity } : null;
  finishDialogMotion(panel);
- const drawer = panel.classList.contains('menu-drawer');
- const closed = { transform: drawer ? 'translateX(100%)' : 'translateY(24px) scale(0.97)', opacity: drawer ? .7 : 0 };
- const shown = { transform: 'none', opacity: 1 };
  panel.classList.toggle('is-closing', !opening);
- if (motionPreference.matches || keyboardAction || !panel.animate) { panel.classList.add('instant-motion'); then(); return; }
- panel.classList.remove('instant-motion');
- panel.style.willChange = 'transform, opacity';
- const animation = panel.animate([current || (opening ? closed : shown), opening ? shown : closed], {duration: drawer ? (opening ? 280 : 220) : (opening ? 240 : 180), easing: drawer ? easeDrawer : easeOut, fill: 'both'});
- const state = { animation, opening, then };
- dialogMotions.set(panel, state);
- animation.onfinish = () => {
+ panel.classList.toggle('is-open', opening);
+ if (motionPreference.matches) { then(); return; }
+ const value = getComputedStyle(panel).getPropertyValue(opening ? '--modal-open-dur' : '--modal-close-dur').trim();
+ const duration = parseFloat(value) * (value.endsWith('ms') ? 1 : 1000) || 0;
+ const state = { opening, then };
+ const complete = () => {
   if (dialogMotions.get(panel) !== state) return;
-  dialogMotions.delete(panel); animation.cancel(); panel.style.removeProperty('will-change'); then();
+  finishDialogMotion(panel);
+  then();
  };
+ state.onEnd = event => {
+  if (event.target === panel && event.propertyName === 'transform' && !event.pseudoElement) complete();
+ };
+ dialogMotions.set(panel, state);
+ panel.addEventListener('transitionend', state.onEnd);
+ // Fallback covers a cancelled transition or a tab moved into the background.
+ state.timer = setTimeout(complete, duration + 50);
 }
 function showMotionDialog(panel) {
- if (!panel.open) panel.showModal();
- syncModalLock(); animateDialog(panel, true);
+ if (panel.open && !panel.classList.contains('is-closing')) return;
+ panel.classList.add('t-modal');
+ if (!panel.open) {
+  panel.classList.remove('is-open', 'is-closing');
+  panel.showModal();
+  // Establish the closed CSS state before starting the first transition.
+  void panel.offsetWidth;
+ }
+ syncModalLock();
+ animateDialog(panel, true);
 }
 function closeMotionDialog(panel, after = () => {}) {
- if (!panel.open) return;
- animateDialog(panel, false, () => { panel.close(); panel.classList.remove('is-closing'); syncModalLock(); after(); });
+ if (!panel.open || panel.classList.contains('is-closing')) return;
+ animateDialog(panel, false, () => {
+  panel.close();
+  panel.classList.remove('is-open', 'is-closing');
+  syncModalLock();
+  after();
+ });
 }
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#navigation');
@@ -49,7 +66,13 @@ menuButton.addEventListener('click', () => { menuButton.setAttribute('aria-expan
 menuDialog.querySelector('.menu-close').addEventListener('click', () => closeMenu());
 menuDialog.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
 menuDialog.addEventListener('click', event => { if (event.target !== menuDialog) return; const r=menuDialog.getBoundingClientRect(); if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom) closeMenu(); });
-menuDialog.addEventListener('close', () => { finishDialogMotion(menuDialog); menuButton.setAttribute('aria-expanded', 'false'); syncModalLock(); });
+menuDialog.addEventListener('close', () => {
+ if (menuDialog.open) return; // A queued close event must not cancel a fresh opening.
+ finishDialogMotion(menuDialog);
+ menuDialog.classList.remove('is-open', 'is-closing');
+ menuButton.setAttribute('aria-expanded', 'false');
+ syncModalLock();
+});
 menuDialog.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
  event.preventDefault();
  const target = document.querySelector(link.hash); if (!target) return;
@@ -134,7 +157,7 @@ document.addEventListener('focusin', event => {
 });
 motionPreference.addEventListener('change', () => {
  if(!motionPreference.matches)return;
- for(const [panel,state] of [...dialogMotions]) { finishDialogMotion(panel);panel.classList.add('instant-motion');state.then(); }
+ for(const [panel,state] of [...dialogMotions]) { finishDialogMotion(panel);state.then(); }
  for(const [details,state] of [...collapses]) finishCollapse(details,state);
  for(const [element,animation] of entranceMotions) { animation.cancel(); element.style.removeProperty('will-change'); }
  entranceMotions.clear();
