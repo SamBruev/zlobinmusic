@@ -391,3 +391,144 @@ html{scroll-padding-top:108px;scrollbar-gutter:stable}
  .course-feature-jazz::before,.course-feature-bossa::before{background:linear-gradient(90deg,#24151f 30%,#24151ff2 45%,#24151f12 80%)}
  .course-feature-jazz .course-description,.course-feature-bossa .course-description{max-width:28ch}
 }
+
+/* Artist editorial: one rhythm across teaching, music and personal contact. */
+.first-lesson{background:var(--soft);align-items:start;gap:clamp(40px,7vw,104px)}
+.sample-copy .section-label{margin-bottom:22px;color:var(--wine)}
+.sample-copy .sample-description{margin:28px 0;max-width:45ch;font-size:17px;line-height:1.7}
+.exercise-guide{border-top:1px solid #baa6b0;padding-top:24px}
+.exercise-heading{font-size:22px;font-weight:500;letter-spacing:-.025em}
+.exercise-steps{list-style:none;counter-reset:step;padding:0;margin:20px 0 24px}
+.exercise-steps li{counter-increment:step;display:grid;grid-template-columns:40px 1fr;column-gap:16px;padding:19px 0;border-bottom:1px solid var(--line)}
+.exercise-steps li::before{content:counter(step,decimal-leading-zero);grid-row:span 2;color:var(--wine);font-size:13px;padding-top:4px;font-variant-numeric:tabular-nums}
+.exercise-steps li>span{font-size:18px;font-weight:500}
+.exercise-steps li>p{margin-top:5px;font-size:15px;color:var(--muted)}
+.exercise-guide .sample-caption{color:var(--muted)}
+.lessons-section{position:relative;background:#24151f;color:#fff;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,104px)}
+.lessons-photo{aspect-ratio:4/5;max-height:650px;position:relative;border-radius:16px;isolation:isolate}
+.lessons-photo img{object-position:center 30%}
+.lessons-photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#24151f 0%,#24151f00 18%)}
+.lessons-copy .section-label{color:var(--amber);margin-bottom:22px}
+.lessons-copy>.large-text{color:#fff;font-weight:400}
+.lessons-copy>p:not(.section-label):not(.large-text){color:#d9c6d0}
+.lessons-copy .lesson-topics{list-style:none;padding:0;margin:26px 0 30px;color:#eee0e7;border-top:1px solid #ffffff26}
+.lesson-topics li{padding:12px 0;border-bottom:1px solid #ffffff26;font-size:15px}
+.lessons-copy>.lesson-terms{color:#d9c6d0;line-height:1.6}
+.mentor{align-items:start;padding-bottom:calc(var(--section-space) * .8)}
+.mentor-intro h2{margin-bottom:28px}
+.artist-statement{font-size:clamp(26px,2.7vw,40px);line-height:1.35;letter-spacing:-.04em;color:var(--wine);max-width:22ch}
+.mentor-copy>p:not(.section-label){margin:0 0 24px;font-size:18px;line-height:1.75;color:var(--muted)}
+.mentor-copy .text-link{margin-top:8px}
+.music-section{padding-top:0}
+.music-section>.section-heading{border-top:1px solid var(--line);padding-top:var(--section-space);margin-bottom:40px}
+.music-layout{grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,104px);align-items:start}
+.music-portrait{position:relative;border-radius:16px;overflow:hidden;background:#24151f}
+.music-portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 27%}
+.music-portrait figcaption{position:absolute;bottom:0;left:0;right:0;padding:64px 26px 24px;background:linear-gradient(transparent,#24151fed);color:#fff;font-size:13px}
+.music-recordings{display:flex;flex-direction:column;gap:32px}
+.recording{padding:0 0 32px;border-bottom:1px solid var(--line)}
+.recording .section-label{margin-bottom:16px;color:var(--wine)}
+.music-recordings .recording h3{font-size:clamp(30px,3vw,44px);font-weight:500;letter-spacing:-.04em;line-height:1.15}
+.recording>p:not(.section-label){margin:20px 0;font-size:16px;color:var(--muted);max-width:42ch}
+.music-more{align-self:start}
+.practice{background:var(--soft);align-items:start}
+.practice-intro .section-label{color:var(--wine)}
+.practice .lesson{background:#24151f;color:#fff;border:0;border-radius:16px;padding:32px}
+.practice .lesson-top{color:#d9c6d0;padding-bottom:24px}
+.practice .chord{background:#ffffff08;border:1px solid #ffffff30;border-radius:10px;color:#fff;padding:24px 6px 20px}
+.practice .chord:hover{background:#ffffff15;border-color:var(--amber)}
+.practice .chord.active{background:#6a2e46;border-color:var(--amber)}
+.practice .degree{color:#e0c6d2}
+.practice .chord strong{font-size:clamp(22px,2.5vw,36px);font-weight:500}
+.practice .top-note{background:#ffffff15;color:#f3d9e4}
+.practice .top-note.resolve{background:var(--amber);color:var(--wine-dark)}
+.practice .lesson-controls .button{background:var(--amber);color:var(--wine-dark);box-shadow:none}
+.practice .sound-stop{color:#fff;min-height:44px;font-size:14px;padding-inline:5px}
+.practice .sound-stop:disabled{color:#bba6b0}
+.practice .volume,.practice .voicing-caption,.practice .sound-status{color:#d9c6d0}
+.practice .volume{font-size:12px}
+.practice .volume input{accent-color:var(--amber);height:28px}
+.practice .voicing-caption strong{color:#fff}
+.practice .play-yourself{border-color:#ffffff30}
+.practice .play-yourself summary{color:#fff;padding-block:20px 4px}
+.practice .play-yourself .details-body,.practice .play-yourself dt{color:#d9c6d0}
+.practice .play-yourself dl{gap:18px}
+.practice :focus-visible{outline-color:var(--amber)}
+.concert-section{align-items:start;background:var(--paper)}
+.concert-archive{align-self:start;padding-top:8px}
+.concert-archive>h3{font-size:20px;font-weight:500;margin-bottom:24px}
+.archive-item{gap:28px;padding:26px 0}
+.archive-year{color:var(--wine);min-width:42px}
+.archive-item h4{font-size:22px;font-weight:500;letter-spacing:-.025em}
+.archive-item p{font-size:14px;line-height:1.6}
+.news-section{padding-top:0}
+.news-section .section-heading{padding-top:var(--section-space);border-top:1px solid var(--line);align-items:center}
+.news-grid{display:block}
+.news-item{display:grid;grid-template-columns:160px 1.15fr 1fr;gap:16px 32px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
+.news-item time{padding-top:5px;grid-column:1;grid-row:1 / span 2;font-size:13px}
+.news-item h3{grid-column:2;grid-row:1 / span 2;font-size:26px;font-weight:500;line-height:1.25;margin:0;max-width:25ch}
+.news-item>p{grid-column:3;margin:0;font-size:15px;line-height:1.65}
+.news-item>.text-link{grid-column:3;justify-self:start;margin-top:0}
+.news-item:last-child{border-bottom:1px solid var(--line)}
+.faq{background:var(--soft);align-items:start}
+.faq-intro{margin-top:24px;color:var(--muted);max-width:30ch}
+.faq-list{border-top:1px solid #baa6b0}
+.faq-list details{padding:0;margin:0;border-radius:0}.faq-list details[open]{background:transparent;border-radius:0}
+.faq-list summary,.faq-list details:first-child summary{font-size:17px;padding:22px 28px 22px 0}
+.faq-list summary::after,.faq-list details:first-child summary::after{content:'';width:8px;height:8px;border-right:1.5px solid var(--wine);border-bottom:1.5px solid var(--wine);transform:rotate(45deg);top:30px;right:4px;font-size:0;transition:transform 180ms var(--ease-out)}
+.faq-list details[open] summary::after{content:'';transform:rotate(225deg)}
+.faq-list details p{font-size:15px;line-height:1.75;padding-bottom:24px}
+.contact{background:#24151f;align-items:start;gap:clamp(40px,7vw,104px);padding-bottom:56px}
+.contact-intro{font-size:19px;line-height:1.7;color:#e0cdd7;margin-top:28px}
+.contact-links{margin-top:40px;gap:0}
+.contact-links a{padding:20px 0;border-top:1px solid #ffffff26;border-bottom:1px solid #ffffff26}
+.contact-links a:last-child{border-bottom:1px solid #ffffff26}
+.contact-links strong{border:0;font-size:23px}
+.contact-links a:hover strong{text-decoration:underline;text-underline-offset:6px}
+.contact-links span{color:#d9c6d0;font-size:14px}
+.contact-action{background:#ffffff06;border:1px solid #ffffff26;border-radius:16px;padding:32px}
+.contact-action .contact-form-heading{font-size:26px;letter-spacing:-.03em;color:#fff;margin-bottom:24px}
+.contact-topic-label,.message-box>label{font-size:14px;color:#e0cdd7}
+.contact #contact-topic{background:#33222c;color:#fff;border:1px solid #735e69;border-radius:8px;padding:14px 16px}
+.contact .message-box{margin-top:24px}
+.contact .message-box textarea{background:#24151f;border:1px solid #735e69;border-radius:8px;color:#fff;font-size:15px;line-height:1.75;min-height:245px;padding:16px}
+.contact .copy-button{border:1px solid #967f8a;background:transparent;color:#f3e5ec;box-shadow:none}
+.contact-action .button{width:100%;margin-top:24px}
+.contact-action .contact-note{color:#d9c6d0;font-size:12px;margin-top:16px}
+.contact :focus-visible{outline-color:var(--amber)}
+.site-footer{background:#24151f;padding-top:0;padding-bottom:30px}
+.site-footer>.footer-main{border-top:1px solid #ffffff26;padding-top:32px}
+.site-footer>.footer-meta{border-top:0;margin-top:18px}
+@media(max-width:1100px) and (min-width:761px){
+ .lessons-section,.music-layout{gap:36px;grid-template-columns:1fr 1fr}
+ .lessons-photo{aspect-ratio:3/4;position:sticky;top:120px}
+ .practice{grid-template-columns:1fr}.practice-intro{max-width:750px}.practice-intro>p:not(.section-label){max-width:65ch}.practice .lesson{max-width:800px;width:100%}
+ .news-item{grid-template-columns:120px 1fr 1fr;gap:18px}
+ .contact{gap:36px}.contact-action{padding:24px}
+}
+@media(max-width:760px){
+ .first-lesson,.lessons-section,.mentor,.music-layout,.practice,.concert-section,.faq,.contact{grid-template-columns:1fr;gap:32px}
+ .sample-copy .sample-description{font-size:16px;margin:22px 0}
+ .exercise-heading{font-size:21px}.exercise-guide{padding-top:20px}.exercise-steps li{padding:16px 0}
+ .lessons-copy{grid-row:2}.lessons-copy>.large-text{font-size:20px!important;line-height:1.55}
+ .lessons-photo{grid-row:1;aspect-ratio:4/3;max-height:360px;width:100%;max-width:440px;justify-self:center}
+ .lessons-copy .lesson-topics{margin:22px 0 26px}.lessons-copy .button{width:100%}
+ .artist-statement{font-size:30px;max-width:24ch}.mentor-intro h2{margin-bottom:22px}
+ .mentor-copy>p:not(.section-label){font-size:16px;line-height:1.75;margin-bottom:20px}
+ .music-section .section-heading{margin-bottom:28px}.music-portrait{max-height:440px}
+ .music-portrait img{aspect-ratio:4/5;max-height:440px}.music-portrait figcaption{padding:58px 22px 20px}
+ .music-recordings{gap:28px}.music-recordings .recording h3{font-size:32px}.recording{padding-bottom:28px}
+ .practice .lesson{padding:22px 16px}.practice .chords{gap:8px}.practice .chord{padding:20px 3px 16px}
+ .practice .chord strong{font-size:24px;letter-spacing:-.055em}.practice .lesson-top{font-size:11px}
+ .practice .lesson-controls{gap:10px 16px}.practice .volume{width:100%;flex-direction:row;gap:14px;align-items:center;margin-top:4px}.practice .volume input{width:120px}
+ .practice .lesson-controls .button{font-size:13px;padding-inline:16px;min-height:48px}
+ .concert-archive{padding-top:8px}.concert-archive>h3{font-size:20px}.archive-item{gap:20px;padding:22px 0}.archive-item h4{font-size:20px}
+ .news-section .section-heading .text-link{margin-top:20px}.news-item{display:block;padding:24px 0}.news-item time{display:block;padding:0;margin-bottom:14px}.news-item h3{font-size:25px;max-width:none}.news-item>p{margin:16px 0}.news-item>.text-link{margin-top:0}
+ .faq-intro{margin-top:18px;font-size:16px}.faq-list summary,.faq-list details:first-child summary{font-size:16px}
+ .contact-intro{font-size:17px;margin-top:22px}.contact-links{margin-top:28px}.contact-links strong{font-size:22px}
+ .contact-action{padding:24px 20px}.contact .message-box textarea{min-height:280px}.contact-action .contact-form-heading{font-size:24px}
+ .contact-action .button{padding-inline:12px;font-size:13px}.contact{padding-bottom:36px}
+ .site-footer>.footer-main{padding-top:28px}.site-footer>.footer-meta{padding-top:12px}
+}
+@media(max-width:370px){.practice .chord strong{font-size:21px}.contact-action{padding:22px 16px}.contact .message-box textarea{padding:12px;font-size:14px}.artist-statement{font-size:27px}}
+@media(prefers-reduced-motion:reduce){.faq-list summary::after{transition:none}}
